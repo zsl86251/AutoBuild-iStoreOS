@@ -16,6 +16,18 @@ sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generat
 # 修改主机名字，把 iStore OS 修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i 's/OpenWrt/iStoreOS/g' package/base-files/files/bin/config_generate
 
+# 清除默认登录密码
+sed -i 's/$1$5mjCdAB1$Uk1sNbwoqfHxUmzRIeuZK1:0/:/g' package/base-files/files/etc/shadow
+
+# ttyd 自动登录
+#sed -i "s?/bin/login?/usr/libexec/login.sh?g" package/feeds/packages/ttyd/files/ttyd.config
+# 修改 WiFi 名称
+# sed -i 's/OpenWrt/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# 默认打开 WiFi
+#sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#修改分区大小
+#sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g' .config
+
 # 移除要替换的包
 rm -rf feeds/third_party/luci-app-LingTiGameAcc
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
@@ -39,6 +51,18 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-ope
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin luci-lib-taskd
+# 科学上网插件
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
+git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
+# 在线用户
+git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
+sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
+
 
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
@@ -63,6 +87,7 @@ echo "
 CONFIG_GRUB_IMAGES=y
 CONFIG_VMDK_IMAGES=y
 
+# 添加自定义软件包
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
 
@@ -85,13 +110,30 @@ CONFIG_PACKAGE_luci-app-qbittorrent=y
 CONFIG_PACKAGE_luci-app-transmission=y
 CONFIG_PACKAGE_transmission-web-control=y
 
+# 关机
+CONFIG_PACKAGE_luci-app-poweroff=y
+#CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
+
 # uhttpd
 #CONFIG_PACKAGE_luci-app-uhttpd=y
 
 # 阿里DDNS
-CONFIG_PACKAGE_luci-app-aliddns=y
+#CONFIG_PACKAGE_luci-app-aliddns=y
 
 # filebrowser
 CONFIG_PACKAGE_luci-app-filebrowser=y
 
+#SSR-PLUS
+#CONFIG_PACKAGE_luci-app-ssr-plus=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_libustream-openssl=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ChinaDNS_NG=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_MosDNS=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server=y
+
 " >> .config
+
