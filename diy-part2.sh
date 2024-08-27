@@ -64,6 +64,7 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages packa
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
+#git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus
 # 在线用户
 git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
@@ -102,8 +103,7 @@ CONFIG_PACKAGE_luci-app-openclash=y
 
 # adguardhome
 CONFIG_PACKAGE_luci-app-adguardhome=y
-#iKoolProxy
-CONFIG_PACKAGE_luci-app-iKoolProxy=y
+
 # mosdns
 #CONFIG_PACKAGE_luci-app-mosdns=y
 
@@ -222,6 +222,17 @@ CONFIG_PACKAGE_luci-app-bypass_INCLUDE_Socks_Server=y
 # CONFIG_PACKAGE_luci-app-kodexplorer=y
 # CONFIG_PACKAGE_luci-app-rclone=y
 
+#iKoolProxy
+CONFIG_PACKAGE_luci-app-iKoolProxy=y
+CONFIG_PACKAGE_iptables-mod-nat-extra=y
+CONFIG_PACKAGE_kmod-ipt-extra=y
+CONFIG_PACKAGE_diffutils=y
+CONFIG_PACKAGE_openssl-util=y
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_libustream-openssl=n
+CONFIG_PACKAGE_lua-openssl=y
 
 # 内网穿透
 # CONFIG_PACKAGE_luci-app-zerotier=y
