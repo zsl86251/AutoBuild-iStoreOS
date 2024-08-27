@@ -102,7 +102,8 @@ CONFIG_PACKAGE_luci-app-openclash=y
 
 # adguardhome
 CONFIG_PACKAGE_luci-app-adguardhome=y
-
+#iKoolProxy
+CONFIG_PACKAGE_luci-app-iKoolProxy=y
 # mosdns
 #CONFIG_PACKAGE_luci-app-mosdns=y
 
