@@ -61,12 +61,12 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-fil
 # 科学上网插件
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
 #git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 git clone https://github.com/ywt114/luci-app-adbyby-plus-lite.git package/luci-app-adbyby-plus
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus adbyby
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus
 # 在线用户
 git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
 #sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
@@ -147,14 +147,14 @@ CONFIG_PACKAGE_luci-app-filebrowser=y
 #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server=y
 
 #passwall
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
-CONFIG_PACKAGE_luci-app-passwall_Iptables_Transparent_Proxy=y
-CONFIG_PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
+#CONFIG_PACKAGE_luci-app-passwall=y
+#CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
+#CONFIG_PACKAGE_luci-app-passwall_Iptables_Transparent_Proxy=y
+#CONFIG_PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Kcptun=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_PDNSD=y
@@ -163,13 +163,13 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
 
 #passwall2
 CONFIG_PACKAGE_luci-app-passwall2=y
