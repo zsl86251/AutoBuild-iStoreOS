@@ -69,8 +69,8 @@ git clone https://github.com/ywt114/luci-app-adbyby-plus-lite.git package/luci-a
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus adbyby
 # 在线用户
 git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
-sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
-sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
 chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 
@@ -123,7 +123,7 @@ CONFIG_PACKAGE_luci-app-pushbot=y
 
 # 关机
 CONFIG_PACKAGE_luci-app-poweroff=y
-#CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
 
 # uhttpd
 #CONFIG_PACKAGE_luci-app-uhttpd=y
@@ -190,8 +190,8 @@ CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs=y
 CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_SingBox=y
 CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_tuic_client=y
 # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+#CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin=y
 
 # 科学上网-bypass
 CONFIG_PACKAGE_lua-maxminddb=y
