@@ -14,7 +14,7 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把 iStore OS 修改你喜欢的就行（不能纯数字或者使用中文）
-#sed -i 's/OpenWrt/iStoreOS/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/iStoreOS/g' package/base-files/files/bin/config_generate
 
 # 修改子网掩码
 #sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
@@ -65,7 +65,8 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-a
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
 #git clone https://github.com/1wrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus
+git clone https://github.com/ywt114/luci-app-adbyby-plus-lite.git package/luci-app-adbyby-plus
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adbyby-plus adbyby
 # 在线用户
 git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
 sed -i '$i uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
